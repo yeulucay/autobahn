@@ -1,12 +1,13 @@
 package com.bahcesehir.autobahn.services;
 
 import com.bahcesehir.autobahn.entities.Project;
-import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 
 public interface ProjectService {
 
     public Iterable<Project> getAllProjects();
 
-    public Project getProjectById(Long id);
+    public Optional<Project> getProjectById(Long id);
 }
