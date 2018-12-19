@@ -8,4 +8,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EndPointRepository extends CrudRepository<EndPoint, Long> {
+
+    Iterable<EndPoint> findAllByProjectId(Long id);
+
 }

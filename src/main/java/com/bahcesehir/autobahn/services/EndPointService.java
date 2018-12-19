@@ -1,12 +1,18 @@
 package com.bahcesehir.autobahn.services;
 
-import com.bahcesehir.autobahn.entities.EndPoint;
+import com.bahcesehir.autobahn.controllers.dto.CreateEndPointDto;
+import com.bahcesehir.autobahn.controllers.dto.CreateEndPointTypeDto;
+import com.bahcesehir.autobahn.controllers.views.EndPointTypeView;
+import com.bahcesehir.autobahn.controllers.views.EndPointView;
+
 
 public interface EndPointService {
 
-    public Iterable<EndPoint> getAllEndPoints();
+    EndPointTypeView createEndPointType(CreateEndPointTypeDto dto);
 
-    public EndPoint getEndPointById(Long id);
+    EndPointView createEndPoint(CreateEndPointDto dto);
 
-    public Iterable<EndPoint> getEndPointsByProject(Long projectId);
+    Iterable<EndPointView> getEndPointsByProjectId(Long projectId);
+
+    Iterable<EndPointTypeView> getEndPointTypes();
 }

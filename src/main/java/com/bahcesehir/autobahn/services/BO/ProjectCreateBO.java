@@ -9,12 +9,12 @@ import com.bahcesehir.autobahn.repositories.ProjectRepository;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class CreateProjectBO implements BaseBO<ProjectView> {
+public class ProjectCreateBO implements BaseBO<ProjectView> {
 
     private CreateProjectDto dto;
     private ProjectRepository repository;
 
-    public CreateProjectBO(ProjectRepository repository, CreateProjectDto dto){
+    public ProjectCreateBO(ProjectRepository repository, CreateProjectDto dto){
         this.dto = dto;
         this.repository = repository;
     }
@@ -31,5 +31,10 @@ public class CreateProjectBO implements BaseBO<ProjectView> {
             return new ProjectView(p);
         }
         return null;
+    }
+
+    @Override
+    public void validate() {
+
     }
 }

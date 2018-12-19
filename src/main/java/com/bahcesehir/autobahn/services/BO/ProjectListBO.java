@@ -22,4 +22,9 @@ public class ProjectListBO implements BaseBO<Iterable<ProjectView>> {
         return StreamSupport.stream(projects.spliterator(), false)
                 .map(ProjectView::new).collect(Collectors.toList());
     }
+
+    @Override
+    public void validate() {
+
+    }
 }

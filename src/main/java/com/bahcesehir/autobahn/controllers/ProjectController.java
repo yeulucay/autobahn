@@ -30,7 +30,7 @@ public class ProjectController {
      * Get all project list
      * @return
      */
-    @GetMapping("all")
+    @GetMapping("/list")
     public ResponseEntity<Iterable> getAllProjects(){
         Iterable result = projectService.getAllProjects();
         return new ResponseEntity<>(result, HttpStatus.OK);
@@ -39,7 +39,7 @@ public class ProjectController {
     /**
      * Create new project
      */
-    @PostMapping("create")
+    @PostMapping("/create")
     public ResponseEntity<ProjectView> createProject(@RequestBody CreateProjectDto project){
         ProjectView result = projectService.createProject(project);
         return new ResponseEntity<>(result, result != null ? HttpStatus.CREATED : HttpStatus.BAD_REQUEST);

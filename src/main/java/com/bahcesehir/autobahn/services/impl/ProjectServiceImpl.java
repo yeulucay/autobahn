@@ -4,7 +4,7 @@ import com.bahcesehir.autobahn.controllers.dto.CreateProjectDto;
 import com.bahcesehir.autobahn.controllers.views.ProjectView;
 import com.bahcesehir.autobahn.entities.Project;
 import com.bahcesehir.autobahn.repositories.ProjectRepository;
-import com.bahcesehir.autobahn.services.BO.CreateProjectBO;
+import com.bahcesehir.autobahn.services.BO.ProjectCreateBO;
 import com.bahcesehir.autobahn.services.BO.ProjectListBO;
 import com.bahcesehir.autobahn.services.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +36,7 @@ public class ProjectServiceImpl implements ProjectService
 
     @Override
     public ProjectView createProject(CreateProjectDto project) {
-        CreateProjectBO bo = new CreateProjectBO(projectRepository, project);
+        ProjectCreateBO bo = new ProjectCreateBO(projectRepository, project);
         return bo.execute();
     }
 }
