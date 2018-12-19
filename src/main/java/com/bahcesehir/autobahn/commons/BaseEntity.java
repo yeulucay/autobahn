@@ -12,7 +12,7 @@ public abstract class BaseEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private LocalDateTime createdAt;
+    private LocalDateTime createdAt = LocalDateTime.now();
     private LocalDateTime lastUpdatedAt;
     private Boolean deleted;
     private LocalDateTime deletedAt;

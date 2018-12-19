@@ -1,4 +1,4 @@
-package com.bahcesehir.autobahn.services.Impl;
+package com.bahcesehir.autobahn.services.impl;
 
 import com.bahcesehir.autobahn.entities.EndPoint;
 import com.bahcesehir.autobahn.services.EndPointService;
