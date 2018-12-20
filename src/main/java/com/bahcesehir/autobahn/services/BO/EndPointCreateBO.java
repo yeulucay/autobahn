@@ -28,6 +28,7 @@ public class EndPointCreateBO implements BaseBO<EndPointView> {
                             CreateEndPointDto dto) {
         this.endPointRepository = endPointRepository;
         this.endPointTypeRepository = endPointTypeRepository;
+        this.projectRepository = projectRepository;
         this.dto = dto;
     }
 
