@@ -7,7 +7,7 @@ public abstract class BaseView<T> {
 
     private Long id;
 
-    protected void map(T t){
+    void map(T t){
         ModelMapper mapper = new ModelMapper();
         mapper.map(t, this);
     }
