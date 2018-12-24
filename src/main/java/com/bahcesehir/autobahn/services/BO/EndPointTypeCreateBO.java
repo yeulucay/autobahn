@@ -1,6 +1,6 @@
 package com.bahcesehir.autobahn.services.BO;
 
-import com.bahcesehir.autobahn.controllers.dto.CreateEndPointTypeDto;
+import com.bahcesehir.autobahn.controllers.dto.EndPointTypeCreateDto;
 import com.bahcesehir.autobahn.controllers.views.EndPointTypeView;
 import com.bahcesehir.autobahn.entities.EndPointType;
 import com.bahcesehir.autobahn.repositories.EndPointTypeRepository;
@@ -11,10 +11,10 @@ import java.util.Objects;
 public class EndPointTypeCreateBO implements BaseBO<EndPointTypeView> {
 
     private EndPointTypeRepository endPointTypeRepository;
-    private CreateEndPointTypeDto dto;
+    private EndPointTypeCreateDto dto;
 
     public EndPointTypeCreateBO(EndPointTypeRepository endPointTypeRepository,
-                                CreateEndPointTypeDto dto) {
+                                EndPointTypeCreateDto dto) {
         this.endPointTypeRepository = endPointTypeRepository;
         this.dto = dto;
     }

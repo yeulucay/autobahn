@@ -1,7 +1,7 @@
 package com.bahcesehir.autobahn.controllers;
 
-import com.bahcesehir.autobahn.controllers.dto.CreateEndPointDto;
-import com.bahcesehir.autobahn.controllers.dto.CreateEndPointTypeDto;
+import com.bahcesehir.autobahn.controllers.dto.EndPointCreateDto;
+import com.bahcesehir.autobahn.controllers.dto.EndPointTypeCreateDto;
 import com.bahcesehir.autobahn.controllers.views.EndPointTypeView;
 import com.bahcesehir.autobahn.controllers.views.EndPointView;
 import com.bahcesehir.autobahn.services.EndPointService;
@@ -29,7 +29,7 @@ public class EndPointController {
      * @return
      */
     @PostMapping("/type/create")
-    public ResponseEntity<EndPointTypeView> createEndPointType(@RequestBody CreateEndPointTypeDto endpointType){
+    public ResponseEntity<EndPointTypeView> createEndPointType(@RequestBody EndPointTypeCreateDto endpointType){
         EndPointTypeView result = this.endPointService.createEndPointType(endpointType);
         return new ResponseEntity<>(result, HttpStatus.CREATED);
     }
@@ -40,7 +40,7 @@ public class EndPointController {
      * @return
      */
     @PostMapping("/create")
-    public ResponseEntity<EndPointView> createEndPoint(@RequestBody CreateEndPointDto endpoint){
+    public ResponseEntity<EndPointView> createEndPoint(@RequestBody EndPointCreateDto endpoint){
         EndPointView result = this.endPointService.createEndPoint(endpoint);
         return new ResponseEntity<>(result, HttpStatus.CREATED);
     }

@@ -1,7 +1,7 @@
 package com.bahcesehir.autobahn.controllers.dto;
 
 
-public class CreateEndPointDto {
+public class EndPointCreateDto {
 
     private String address;
     private String port;

@@ -1,8 +1,7 @@
 package com.bahcesehir.autobahn.controllers;
 
-import com.bahcesehir.autobahn.controllers.dto.CreateProjectDto;
+import com.bahcesehir.autobahn.controllers.dto.ProjectCreateDto;
 import com.bahcesehir.autobahn.controllers.views.ProjectView;
-import com.bahcesehir.autobahn.entities.Project;
 import com.bahcesehir.autobahn.services.impl.ProjectServiceImpl;
 import com.bahcesehir.autobahn.services.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +39,7 @@ public class ProjectController {
      * Create new project
      */
     @PostMapping("/create")
-    public ResponseEntity<ProjectView> createProject(@RequestBody CreateProjectDto project){
+    public ResponseEntity<ProjectView> createProject(@RequestBody ProjectCreateDto project){
         ProjectView result = projectService.createProject(project);
         return new ResponseEntity<>(result, result != null ? HttpStatus.CREATED : HttpStatus.BAD_REQUEST);
     }

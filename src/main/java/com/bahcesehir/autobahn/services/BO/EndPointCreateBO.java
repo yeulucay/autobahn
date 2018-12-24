@@ -1,6 +1,6 @@
 package com.bahcesehir.autobahn.services.BO;
 
-import com.bahcesehir.autobahn.controllers.dto.CreateEndPointDto;
+import com.bahcesehir.autobahn.controllers.dto.EndPointCreateDto;
 import com.bahcesehir.autobahn.controllers.views.EndPointView;
 import com.bahcesehir.autobahn.entities.EndPoint;
 import com.bahcesehir.autobahn.entities.EndPointType;
@@ -11,21 +11,20 @@ import com.bahcesehir.autobahn.repositories.ProjectRepository;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
-import java.util.Optional;
 
 public class EndPointCreateBO implements BaseBO<EndPointView> {
 
     private EndPointRepository endPointRepository;
     private EndPointTypeRepository endPointTypeRepository;
     private ProjectRepository projectRepository;
-    private CreateEndPointDto dto;
+    private EndPointCreateDto dto;
     private EndPointType endPointType;
     private Project project;
 
     public EndPointCreateBO(EndPointRepository endPointRepository,
                             EndPointTypeRepository endPointTypeRepository,
                             ProjectRepository projectRepository,
-                            CreateEndPointDto dto) {
+                            EndPointCreateDto dto) {
         this.endPointRepository = endPointRepository;
         this.endPointTypeRepository = endPointTypeRepository;
         this.projectRepository = projectRepository;

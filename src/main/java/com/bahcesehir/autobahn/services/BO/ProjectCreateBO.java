@@ -1,7 +1,7 @@
 package com.bahcesehir.autobahn.services.BO;
 
 
-import com.bahcesehir.autobahn.controllers.dto.CreateProjectDto;
+import com.bahcesehir.autobahn.controllers.dto.ProjectCreateDto;
 import com.bahcesehir.autobahn.controllers.views.ProjectView;
 import com.bahcesehir.autobahn.entities.Project;
 import com.bahcesehir.autobahn.repositories.ProjectRepository;
@@ -11,10 +11,10 @@ import java.util.Objects;
 
 public class ProjectCreateBO implements BaseBO<ProjectView> {
 
-    private CreateProjectDto dto;
+    private ProjectCreateDto dto;
     private ProjectRepository repository;
 
-    public ProjectCreateBO(ProjectRepository repository, CreateProjectDto dto){
+    public ProjectCreateBO(ProjectRepository repository, ProjectCreateDto dto){
         this.dto = dto;
         this.repository = repository;
     }

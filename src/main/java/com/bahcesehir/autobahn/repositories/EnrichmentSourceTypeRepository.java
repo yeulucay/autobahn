@@ -7,4 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EnrichmentSourceTypeRepository extends CrudRepository<EnrichmentSourceType, Long> {
+
+    EnrichmentSourceType findFirstByCode(String code);
+
 }

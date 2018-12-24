@@ -1,17 +1,17 @@
 package com.bahcesehir.autobahn.controllers.dto;
 
 
-public class CreateEndPointTypeDto {
+public class ProjectCreateDto {
 
-    private String code;
+    private String name;
     private String description;
 
-    public String getCode() {
-        return code;
+    public String getName() {
+        return name;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {

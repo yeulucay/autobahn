@@ -1,6 +1,6 @@
 package com.bahcesehir.autobahn.services.impl;
 
-import com.bahcesehir.autobahn.controllers.dto.CreateProjectDto;
+import com.bahcesehir.autobahn.controllers.dto.ProjectCreateDto;
 import com.bahcesehir.autobahn.controllers.views.ProjectView;
 import com.bahcesehir.autobahn.entities.Project;
 import com.bahcesehir.autobahn.repositories.ProjectRepository;
@@ -35,7 +35,7 @@ public class ProjectServiceImpl implements ProjectService
     }
 
     @Override
-    public ProjectView createProject(CreateProjectDto project) {
+    public ProjectView createProject(ProjectCreateDto project) {
         ProjectCreateBO bo = new ProjectCreateBO(projectRepository, project);
         return bo.execute();
     }
