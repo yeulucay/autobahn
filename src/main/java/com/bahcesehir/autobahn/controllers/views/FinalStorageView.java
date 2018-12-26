@@ -13,7 +13,7 @@ public class FinalStorageView extends BaseView<FinalStorage> {
     private String username;
     private String password;
     private Long finalStorageTypeId;
-    private Long finalStorageTypeName;
+    private String finalStorageTypeCode;
     private Long projectId;
     private String projectName;
 
@@ -85,12 +85,12 @@ public class FinalStorageView extends BaseView<FinalStorage> {
         this.finalStorageTypeId = finalStorageTypeId;
     }
 
-    public Long getFinalStorageTypeName() {
-        return finalStorageTypeName;
+    public String getFinalStorageTypeCode() {
+        return finalStorageTypeCode;
     }
 
-    public void setFinalStorageTypeName(Long finalStorageTypeName) {
-        this.finalStorageTypeName = finalStorageTypeName;
+    public void setFinalStorageTypeCode(String finalStorageTypeCode) {
+        this.finalStorageTypeCode = finalStorageTypeCode;
     }
 
     public Long getProjectId() {

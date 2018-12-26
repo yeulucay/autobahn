@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 
 @Controller
@@ -22,6 +19,17 @@ public class FinalStorageController {
     @Autowired
     public FinalStorageController(FinalStorageService finalStorageService) {
         this.finalStorageService = finalStorageService;
+    }
+
+    /**
+     * Get final storage by project
+     * @param projectId
+     * @return
+     */
+    @GetMapping("/list/{projectId}")
+    public ResponseEntity<Iterable> getFinalStorages(@PathVariable Long projectId){
+        Iterable results = finalStorageService.getFinalStorageByProject(projectId);
+        return new ResponseEntity<>(results, HttpStatus.OK);
     }
 
     /**

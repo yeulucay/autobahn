@@ -10,6 +10,8 @@ public interface FinalStorageService {
 
     FinalStorageView createFinalStorage(FinalStorageCreateDto dto);
 
+    Iterable<FinalStorageView> getFinalStorageByProject(Long projectId);
+
     Iterable<FinalStorageTypeView> getFinalStorageTypes();
 
 }

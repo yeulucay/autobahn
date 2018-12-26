@@ -7,6 +7,7 @@ import com.bahcesehir.autobahn.repositories.FinalStorageRepository;
 import com.bahcesehir.autobahn.repositories.FinalStorageTypeRepository;
 import com.bahcesehir.autobahn.repositories.ProjectRepository;
 import com.bahcesehir.autobahn.services.BO.FinalStorageCreateBO;
+import com.bahcesehir.autobahn.services.BO.FinalStorageListBO;
 import com.bahcesehir.autobahn.services.BO.FinalStorageTypeListBO;
 import com.bahcesehir.autobahn.services.FinalStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,12 @@ public class FinalStorageServiceImpl implements FinalStorageService {
     public FinalStorageView createFinalStorage(FinalStorageCreateDto dto) {
         FinalStorageCreateBO bo = new FinalStorageCreateBO(dto, finalStorageRepository,
                 projectRepository, finalStorageTypeRepository);
+        return bo.execute();
+    }
+
+    @Override
+    public Iterable<FinalStorageView> getFinalStorageByProject(Long projectId) {
+        FinalStorageListBO bo = new FinalStorageListBO(projectId, finalStorageRepository);
         return bo.execute();
     }
 
