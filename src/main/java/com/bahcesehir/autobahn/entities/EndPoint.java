@@ -11,6 +11,7 @@ public class EndPoint extends BaseEntity {
 
     private String address;
     private String port;
+    private String name;
 
     @OneToOne
     private Project project;
@@ -33,6 +34,14 @@ public class EndPoint extends BaseEntity {
 
     public void setPort(String port) {
         this.port = port;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Project getProject() {

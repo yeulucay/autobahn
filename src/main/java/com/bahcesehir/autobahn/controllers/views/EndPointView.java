@@ -8,7 +8,9 @@ public class EndPointView extends BaseView<EndPoint>{
 
     private String address;
     private String port;
+    private String name;
     private Long projectId;
+    private String projectName;
     private String endPointTypeCode;
 
     public EndPointView(EndPoint e){
@@ -31,12 +33,28 @@ public class EndPointView extends BaseView<EndPoint>{
         this.port = port;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Long getProjectId() {
         return projectId;
     }
 
     public void setProjectId(Long projectId) {
         this.projectId = projectId;
+    }
+
+    public String getProjectName() {
+        return projectName;
+    }
+
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
     }
 
     public String getEndPointTypeCode() {

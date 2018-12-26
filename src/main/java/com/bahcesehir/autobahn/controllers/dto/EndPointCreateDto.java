@@ -5,6 +5,7 @@ public class EndPointCreateDto {
 
     private String address;
     private String port;
+    private String name;
     private Long projectId;
     private Long typeId;
 
@@ -22,6 +23,14 @@ public class EndPointCreateDto {
 
     public void setPort(String port) {
         this.port = port;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Long getProjectId() {

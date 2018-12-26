@@ -7,4 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EnrichmentSourceRepository extends CrudRepository<EnrichmentSource, Long> {
+
+    Iterable<EnrichmentSource> getAllByProject(Long projectId);
+
 }

@@ -9,6 +9,7 @@ public class EnrichmentSourceView extends BaseView<EnrichmentSource>{
     private String description;
     private String address;
     private String port;
+    private String projectName;
     private String enrichmentSourceTypeCode;
     private String username;
     private String password;
@@ -48,6 +49,14 @@ public class EnrichmentSourceView extends BaseView<EnrichmentSource>{
 
     public void setPort(String port) {
         this.port = port;
+    }
+
+    public String getProjectName() {
+        return projectName;
+    }
+
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
     }
 
     public String getEnrichmentSourceTypeCode() {

@@ -3,6 +3,7 @@ package com.bahcesehir.autobahn.entities;
 import com.bahcesehir.autobahn.commons.BaseEntity;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
 
 @Entity
@@ -12,10 +13,15 @@ public class EnrichmentSource extends BaseEntity {
     private String description;
     private String address;
     private String port;
-    private EnrichmentSourceType type;
     private String username;
     private String password;
     private String databaseName;
+
+    @OneToOne
+    private Project project;
+
+    @OneToOne
+    private EnrichmentSourceType type;
 
     public String getName() {
         return name;
@@ -47,6 +53,14 @@ public class EnrichmentSource extends BaseEntity {
 
     public void setPort(String port) {
         this.port = port;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
     }
 
     public EnrichmentSourceType getType() {

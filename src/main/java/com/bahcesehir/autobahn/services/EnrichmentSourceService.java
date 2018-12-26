@@ -9,6 +9,8 @@ public interface EnrichmentSourceService {
 
     EnrichmentSourceView createEnrichmentSource(EnrichmentSourceCreateDto dto);
 
+    Iterable<EnrichmentSourceView> getEnrichmentSources(Long endpointId);
+
     Iterable<EnrichmentSourceTypeView> getEnrichmentSourceTypes();
 
 }

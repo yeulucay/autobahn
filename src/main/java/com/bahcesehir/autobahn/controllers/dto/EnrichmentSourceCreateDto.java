@@ -5,6 +5,7 @@ public class EnrichmentSourceCreateDto {
 
     private String name;
     private String description;
+    private Long projectId;
     private String address;
     private String port;
     private Long typeId;
@@ -26,6 +27,14 @@ public class EnrichmentSourceCreateDto {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Long getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(Long projectId) {
+        this.projectId = projectId;
     }
 
     public String getAddress() {
