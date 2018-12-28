@@ -1,7 +1,8 @@
 package com.bahcesehir.autobahn.services.BO;
 
+
+import com.bahcesehir.autobahn.controllers.views.EnrichmentColumnNamesView;
 import com.bahcesehir.autobahn.controllers.views.EnrichmentSourceView;
-import com.bahcesehir.autobahn.controllers.views.EnrichmentTableNamesView;
 import com.bahcesehir.autobahn.repositories.EnrichmentSourceRepository;
 
 import java.sql.Connection;
@@ -12,19 +13,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-
-public class EnrichmentTableListBO implements BaseBO<EnrichmentTableNamesView> {
+public class EnrichmentColumnListBO implements BaseBO<EnrichmentColumnNamesView> {
 
     private EnrichmentSourceRepository repository;
     private Long enrichmentSourceId;
+    private String tableName;
 
-    public EnrichmentTableListBO(Long enrichmentSourceId, EnrichmentSourceRepository repository) {
+    public EnrichmentColumnListBO(Long enrichmentSourceId, String tableName, EnrichmentSourceRepository repository) {
+        this.tableName = tableName;
         this.enrichmentSourceId = enrichmentSourceId;
         this.repository = repository;
     }
 
     @Override
-    public EnrichmentTableNamesView execute() {
+    public EnrichmentColumnNamesView execute() {
+
         EnrichmentSourceByIdBO bo = new EnrichmentSourceByIdBO(enrichmentSourceId, repository);
         EnrichmentSourceView enrichmentSource = bo.execute();
 
@@ -51,18 +54,16 @@ public class EnrichmentTableListBO implements BaseBO<EnrichmentTableNamesView> {
         try {
             Connection conn = DriverManager.getConnection(url,
                     enrichmentSource.getUsername(),enrichmentSource.getPassword());
-            ResultSet rs = conn.getMetaData().getTables(enrichmentSource.getDatabaseName(),
+            ResultSet rs = conn.getMetaData().getColumns(enrichmentSource.getDatabaseName(),
                     "public",
-                    "%",
-                    null);
+                    this.tableName,null);
             List<String> results = new ArrayList<>();
             while(rs.next()){
-                if(rs.getString(4).equals("TABLE")) {
-                    results.add(rs.getString(3));
-                }
+                //if(rs.getString(4).equals("TABLE")) {
+                    results.add(rs.getString(4));
+                //}
             }
-            return new EnrichmentTableNamesView(results);
-
+            return new EnrichmentColumnNamesView(results);
 
         } catch (SQLException e) {
             e.printStackTrace();

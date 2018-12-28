@@ -1,7 +1,9 @@
 package com.bahcesehir.autobahn.services.impl;
 
+import com.bahcesehir.autobahn.controllers.views.EnrichmentColumnNamesView;
 import com.bahcesehir.autobahn.controllers.views.EnrichmentTableNamesView;
 import com.bahcesehir.autobahn.repositories.EnrichmentSourceRepository;
+import com.bahcesehir.autobahn.services.BO.EnrichmentColumnListBO;
 import com.bahcesehir.autobahn.services.BO.EnrichmentTableListBO;
 import com.bahcesehir.autobahn.services.MetaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,14 @@ public class MetaServiceImpl implements MetaService {
     @Override
     public EnrichmentTableNamesView getEnrichmentTableNames(Long enrichmentSourceId) {
         EnrichmentTableListBO bo = new EnrichmentTableListBO(enrichmentSourceId, enrichmentSourceRepository);
+        return bo.execute();
+    }
+
+    @Override
+    public EnrichmentColumnNamesView getEnrichmentColumnNames(Long enrichmentSourceId, String columnName) {
+        EnrichmentColumnListBO bo = new EnrichmentColumnListBO(enrichmentSourceId,
+                columnName,
+                enrichmentSourceRepository);
         return bo.execute();
     }
 }

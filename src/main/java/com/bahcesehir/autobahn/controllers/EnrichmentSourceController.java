@@ -2,6 +2,7 @@ package com.bahcesehir.autobahn.controllers;
 
 
 import com.bahcesehir.autobahn.controllers.dto.EnrichmentSourceCreateDto;
+import com.bahcesehir.autobahn.controllers.views.EnrichmentColumnNamesView;
 import com.bahcesehir.autobahn.controllers.views.EnrichmentSourceView;
 import com.bahcesehir.autobahn.controllers.views.EnrichmentTableNamesView;
 import com.bahcesehir.autobahn.entities.EnrichmentSource;
@@ -56,6 +57,20 @@ public class EnrichmentSourceController {
     @GetMapping("/table/list/{enrichmentSourceId}")
     public ResponseEntity<EnrichmentTableNamesView> getEnrichmentTables(@PathVariable Long enrichmentSourceId){
         EnrichmentTableNamesView result = metaService.getEnrichmentTableNames(enrichmentSourceId);
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
+    /**
+     * Get column names from enrichment source
+     * @param enrichmentSourceId
+     * @param columnName
+     * @return
+     */
+    @GetMapping("/column/list/{enrichmentSourceId}/{columnName}")
+    public ResponseEntity<EnrichmentColumnNamesView> getEnrichmentColumns(
+            @PathVariable Long enrichmentSourceId,
+            @PathVariable String columnName){
+        EnrichmentColumnNamesView result = metaService.getEnrichmentColumnNames(enrichmentSourceId, columnName);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
