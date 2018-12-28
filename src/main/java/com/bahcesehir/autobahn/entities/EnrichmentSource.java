@@ -16,6 +16,7 @@ public class EnrichmentSource extends BaseEntity {
     private String username;
     private String password;
     private String databaseName;
+    private String schemaName;
 
     @OneToOne
     private Project project;
@@ -93,5 +94,13 @@ public class EnrichmentSource extends BaseEntity {
 
     public void setDatabaseName(String databaseName) {
         this.databaseName = databaseName;
+    }
+
+    public String getSchemaName() {
+        return schemaName;
+    }
+
+    public void setSchemaName(String schemaName) {
+        this.schemaName = schemaName;
     }
 }

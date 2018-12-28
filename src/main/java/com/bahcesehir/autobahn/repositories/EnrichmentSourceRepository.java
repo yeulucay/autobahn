@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EnrichmentSourceRepository extends CrudRepository<EnrichmentSource, Long> {
 
-    Iterable<EnrichmentSource> getAllByProject(Long projectId);
+    Iterable<EnrichmentSource> getAllByProjectId(Long projectId);
 
 }

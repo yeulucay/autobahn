@@ -40,8 +40,8 @@ public class EnrichmentSourceServiceImpl implements EnrichmentSourceService {
     }
 
     @Override
-    public Iterable<EnrichmentSourceView> getEnrichmentSources(Long endpointId) {
-        EnrichmentSourceListBO bo = new EnrichmentSourceListBO(endpointId, enrichmentSourceRepository);
+    public Iterable<EnrichmentSourceView> getEnrichmentSources(Long projectId) {
+        EnrichmentSourceListBO bo = new EnrichmentSourceListBO(projectId, enrichmentSourceRepository);
         return bo.execute();
     }
 

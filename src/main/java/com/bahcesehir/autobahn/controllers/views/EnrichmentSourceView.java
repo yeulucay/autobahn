@@ -14,6 +14,7 @@ public class EnrichmentSourceView extends BaseView<EnrichmentSource>{
     private String username;
     private String password;
     private String databaseName;
+    private String schemaName;
 
     public EnrichmentSourceView(EnrichmentSource enrichmentSource){
         this.map(enrichmentSource);
@@ -89,5 +90,13 @@ public class EnrichmentSourceView extends BaseView<EnrichmentSource>{
 
     public void setDatabaseName(String databaseName) {
         this.databaseName = databaseName;
+    }
+
+    public String getSchemaName() {
+        return schemaName;
+    }
+
+    public void setSchemaName(String schemaName) {
+        this.schemaName = schemaName;
     }
 }

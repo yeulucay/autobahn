@@ -10,17 +10,17 @@ import java.util.stream.StreamSupport;
 
 public class EnrichmentSourceListBO implements BaseBO<Iterable<EnrichmentSourceView>> {
 
-    private Long endpointId;
+    private Long projectId;
     private EnrichmentSourceRepository respository;
 
-    public EnrichmentSourceListBO(Long endpointId, EnrichmentSourceRepository respository) {
-        this.endpointId = endpointId;
+    public EnrichmentSourceListBO(Long projectId, EnrichmentSourceRepository respository) {
+        this.projectId = projectId;
         this.respository = respository;
     }
 
     @Override
     public Iterable<EnrichmentSourceView> execute() {
-        Iterable<EnrichmentSource> result = respository.getAllByProject(this.endpointId);
+        Iterable<EnrichmentSource> result = respository.getAllByProjectId(this.projectId);
         return StreamSupport.stream(result.spliterator(), false)
                 .map(EnrichmentSourceView::new).collect(Collectors.toList());
     }

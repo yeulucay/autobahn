@@ -12,6 +12,7 @@ public class EnrichmentSourceCreateDto {
     private String username;
     private String password;
     private String databaseName;
+    private String schemaName;
 
     public String getName() {
         return name;
@@ -83,5 +84,13 @@ public class EnrichmentSourceCreateDto {
 
     public void setDatabaseName(String databaseName) {
         this.databaseName = databaseName;
+    }
+
+    public String getSchemaName() {
+        return schemaName;
+    }
+
+    public void setSchemaName(String schemaName) {
+        this.schemaName = schemaName;
     }
 }
