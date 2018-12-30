@@ -3,6 +3,7 @@ package com.bahcesehir.autobahn.services.BO;
 import com.bahcesehir.autobahn.controllers.views.EnrichmentSourceView;
 import com.bahcesehir.autobahn.controllers.views.EnrichmentTableNamesView;
 import com.bahcesehir.autobahn.repositories.EnrichmentSourceRepository;
+import com.bahcesehir.autobahn.services.helpers.JdbcHelper;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -32,18 +33,9 @@ public class EnrichmentTableListBO implements BaseBO<EnrichmentTableNamesView> {
             //TODO: Throw exception
         }
 
-        String jdbcType = "";
-        switch (enrichmentSource.getEnrichmentSourceTypeCode()){
-            case "MYSQL":
-                jdbcType = "mysql";
-                break;
-            case "POSTGRESQL":
-                jdbcType = "postgresql";
-                break;
-        }
+        String jdbcType = JdbcHelper.Instance().getJdbcType(enrichmentSource.getEnrichmentSourceTypeCode());
 
-        String url = String.format("jdbc:%s://%s:%s/%s",
-                jdbcType,
+        String url = JdbcHelper.Instance().getJdbcUrl(jdbcType,
                 enrichmentSource.getAddress(),
                 enrichmentSource.getPort(),
                 enrichmentSource.getDatabaseName());
