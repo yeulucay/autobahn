@@ -27,16 +27,17 @@ repositories {
 dependencies {
     implementation('org.springframework.boot:spring-boot-starter-data-jpa')
     implementation('org.springframework.boot:spring-boot-starter-jdbc')
-    // implementation('org.springframework.boot:spring-boot-starter-security')
     implementation('org.springframework.boot:spring-boot-starter-web')
-    // https://mvnrepository.com/artifact/io.springfox/springfox-swagger2
+
     compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
     compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
     compile 'org.modelmapper:modelmapper:2.3.0'
-    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
     compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.13'
+    compile 'com.spotify:docker-client:8.14.5'
+
     runtimeOnly(group: 'org.postgresql', name: 'postgresql', version: '42.2.5')
     runtimeOnly('mysql:mysql-connector-java')
+
     testImplementation('org.springframework.boot:spring-boot-starter-test')
     testImplementation('org.springframework.security:spring-security-test')
 }
