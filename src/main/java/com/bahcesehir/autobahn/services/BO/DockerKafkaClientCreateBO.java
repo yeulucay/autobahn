@@ -1,12 +1,6 @@
 package com.bahcesehir.autobahn.services.BO;
 
 import com.bahcesehir.autobahn.services.helpers.DockerHelper;
-import com.spotify.docker.client.DefaultDockerClient;
-import com.spotify.docker.client.DockerClient;
-import com.spotify.docker.client.exceptions.DockerCertificateException;
-import com.spotify.docker.client.exceptions.DockerException;
-import com.spotify.docker.client.messages.ContainerConfig;
-import com.spotify.docker.client.messages.ContainerCreation;
 
 
 public class DockerKafkaClientCreateBO implements BaseBO<Void> {
@@ -20,8 +14,15 @@ public class DockerKafkaClientCreateBO implements BaseBO<Void> {
     @Override
     public Void execute() {
 
-        DockerHelper dockerHelper = new DockerHelper();
-        dockerHelper.createDockerContainer(this.imageName);
+        Runnable createDockerTask = () -> {
+            DockerHelper dockerHelper = new DockerHelper();
+            dockerHelper.createDockerContainer(this.imageName);
+        };
+
+        Thread createDockerThread = new Thread(createDockerTask);
+        createDockerThread.start();
+        
+
         return null;
     }
 

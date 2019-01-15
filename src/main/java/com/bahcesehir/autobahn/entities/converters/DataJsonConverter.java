@@ -4,6 +4,7 @@ package com.bahcesehir.autobahn.entities.converters;
 import com.bahcesehir.autobahn.entities.customs.EnrichmentRules;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.util.StringUtils;
 
 import javax.persistence.AttributeConverter;
 import java.io.IOException;
@@ -27,6 +28,9 @@ public class DataJsonConverter implements AttributeConverter<EnrichmentRules, St
 
     @Override
     public EnrichmentRules convertToEntityAttribute(String json) {
+        if(StringUtils.isEmpty(json)){
+            return null;
+        }
         try {
             return objectMapper.readValue(json, EnrichmentRules.class);
         } catch (IOException e) {

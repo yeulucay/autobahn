@@ -22,7 +22,7 @@ public class InfrastructureController {
         this.dockerRunnerService = dockerRunnerService;
     }
 
-    @GetMapping("/enrichment/run/{enrichmentIdf}")
+    @GetMapping("/enrichment/run/{enrichmentId}")
     public void runEnrichment(@PathVariable Long enrichmentId){
         dockerRunnerService.createContainer(enrichmentId);
     }

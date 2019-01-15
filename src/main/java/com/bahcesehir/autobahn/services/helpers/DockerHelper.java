@@ -5,22 +5,29 @@ import com.spotify.docker.client.DefaultDockerClient;
 import com.spotify.docker.client.DockerClient;
 import com.spotify.docker.client.exceptions.DockerCertificateException;
 import com.spotify.docker.client.exceptions.DockerException;
-import com.spotify.docker.client.messages.ContainerConfig;
-import com.spotify.docker.client.messages.ContainerCreation;
+import com.spotify.docker.client.messages.*;
 
 public class DockerHelper {
 
     public void createDockerContainer(String imageName){
         try {
-            DockerClient docker = DefaultDockerClient.fromEnv().build();
+            final DockerClient docker = DefaultDockerClient.fromEnv().build();
+
+            final HostConfig hostConfig = HostConfig.builder().build();
 
             final ContainerConfig containerConfig = ContainerConfig.builder()
-                    .image(imageName)
+                    .hostConfig(hostConfig)
+                    .image("autobahnkafkaconsumer")
                     .build();
 
-            ContainerCreation creation = docker.createContainer(containerConfig);
-            String id = creation.id();
+            final ContainerCreation creation = docker.createContainer(containerConfig);
+            final String id = creation.id();
+
+            final ContainerInfo info = docker.inspectContainer(id);
+
             docker.startContainer(id);
+
+            docker.close();
 
         } catch (DockerCertificateException | InterruptedException | DockerException e) {
             e.printStackTrace();
