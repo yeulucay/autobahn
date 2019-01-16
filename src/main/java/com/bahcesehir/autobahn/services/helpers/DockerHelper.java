@@ -18,6 +18,7 @@ public class DockerHelper {
             final ContainerConfig containerConfig = ContainerConfig.builder()
                     .hostConfig(hostConfig)
                     .image("autobahnkafkaconsumer")
+                    .cmd("mkdir /jsonfile") //TODO: burada json dosyasi icerisine enrichment json'u
                     .build();
 
             final ContainerCreation creation = docker.createContainer(containerConfig);
