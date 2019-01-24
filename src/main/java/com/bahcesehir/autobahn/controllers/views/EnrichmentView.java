@@ -9,6 +9,16 @@ public class EnrichmentView extends BaseView<Enrichment> {
     private Long endPointId;
     private Long enrichmentSourceId;
     private Long finalStorageId;
+    private String enrichmentRules;
+
+
+    public String getEnrichmentRules() {
+        return enrichmentRules;
+    }
+
+    public void setEnrichmentRules(String enrichmentRules) {
+        this.enrichmentRules = enrichmentRules;
+    }
 
     public EnrichmentView(Enrichment enrichment) {
         this.map(enrichment);

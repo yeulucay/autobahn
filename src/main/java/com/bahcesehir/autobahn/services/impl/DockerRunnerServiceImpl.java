@@ -43,7 +43,7 @@ public class DockerRunnerServiceImpl implements DockerRunnerService {
             if(Objects.nonNull(result)){
                 switch(result.getEndPointTypeCode()){
                     case "KAFKA":
-                        this.createKafkaConsumerContainer();
+                        this.createKafkaConsumerContainer(enrichmentView.getEnrichmentRules());
                         break;
                 }
             }
@@ -55,9 +55,10 @@ public class DockerRunnerServiceImpl implements DockerRunnerService {
 
     }
 
-    private void createKafkaConsumerContainer() {
+    private void createKafkaConsumerContainer(String enrichmentRules) {
 
-        DockerKafkaClientCreateBO createBO = new DockerKafkaClientCreateBO(this.kafkaDockerClientName);
+        DockerKafkaClientCreateBO createBO = new DockerKafkaClientCreateBO(
+                this.kafkaDockerClientName, enrichmentRules);
         createBO.execute();
 
     }

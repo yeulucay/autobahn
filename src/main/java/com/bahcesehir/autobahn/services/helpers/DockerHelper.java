@@ -7,9 +7,14 @@ import com.spotify.docker.client.exceptions.DockerCertificateException;
 import com.spotify.docker.client.exceptions.DockerException;
 import com.spotify.docker.client.messages.*;
 
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+
 public class DockerHelper {
 
-    public void createDockerContainer(String imageName){
+    public void createDockerContainer(String imageName, String enrichmentRules){
         try {
             final DockerClient docker = DefaultDockerClient.fromEnv().build();
 
@@ -17,8 +22,7 @@ public class DockerHelper {
 
             final ContainerConfig containerConfig = ContainerConfig.builder()
                     .hostConfig(hostConfig)
-                    .image("autobahnkafkaconsumer")
-                    .cmd("mkdir /jsonfile") //TODO: burada json dosyasi icerisine enrichment json'u
+                    .image(imageName)
                     .build();
 
             final ContainerCreation creation = docker.createContainer(containerConfig);
@@ -27,6 +31,15 @@ public class DockerHelper {
             final ContainerInfo info = docker.inspectContainer(id);
 
             docker.startContainer(id);
+
+
+            final String[] command = {"sh", "-c",
+                    "mkdir /App/meta; echo '"+enrichmentRules+"' > /App/meta/rules.json"};
+            final String execId = docker.execCreate(id, command).id();
+            docker.execStart(execId);
+
+//            InputStream enrichmentRulesStream = new ByteArrayInputStream(enrichmentRules.getBytes());
+//            docker.copyToContainer(enrichmentRulesStream, id, "/App/meta/rules.json");
 
             docker.close();
 

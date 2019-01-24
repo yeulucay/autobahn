@@ -20,8 +20,10 @@ public class Enrichment extends BaseEntity {
     private EnrichmentSource enrichmentSource;
     @OneToOne
     private FinalStorage finalStorage;
-    @Convert(converter = DataJsonConverter.class)
-    private EnrichmentRules enrichmentRules;
+//    @Convert(converter = DataJsonConverter.class)
+//    private EnrichmentRules enrichmentRules;
+
+    private String enrichmentRules;
 
     public Project getProject() {
         return project;
@@ -55,11 +57,11 @@ public class Enrichment extends BaseEntity {
         this.finalStorage = finalStorage;
     }
 
-    public EnrichmentRules getEnrichmentRules() {
+    public String getEnrichmentRules() {
         return enrichmentRules;
     }
 
-    public void setEnrichmentRules(EnrichmentRules enrichmentRules) {
+    public void setEnrichmentRules(String enrichmentRules) {
         this.enrichmentRules = enrichmentRules;
     }
 }

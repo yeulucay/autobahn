@@ -27,10 +27,10 @@ public class EnrichmentController {
      * @param enrichmentId
      * @return
      */
-    @GetMapping("/enrichmentId")
+    @GetMapping("/{enrichmentId}")
     public ResponseEntity getEnrichmentById(@PathVariable Long enrichmentId){
         EnrichmentView result = enrichmentService.getEnrichmentById(enrichmentId);
-        return new ResponseEntity<EnrichmentView>(result, HttpStatus.OK);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
 }
