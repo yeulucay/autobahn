@@ -1,7 +1,7 @@
 package com.bahcesehir.autobahn.services.impl;
 
 import com.bahcesehir.autobahn.controllers.views.EndPointView;
-import com.bahcesehir.autobahn.controllers.views.EnrichmentView;
+import com.bahcesehir.autobahn.controllers.views.EnrichmentContentView;
 import com.bahcesehir.autobahn.repositories.EndPointRepository;
 import com.bahcesehir.autobahn.repositories.EnrichmentRepository;
 import com.bahcesehir.autobahn.services.BO.DockerKafkaClientCreateBO;
@@ -35,15 +35,15 @@ public class DockerRunnerServiceImpl implements DockerRunnerService {
     public void createContainer(Long enrichmentId) {
 
         EnrichmentByIdBO enrichmentByIdBO = new EnrichmentByIdBO(enrichmentId, enrichmentRepository);
-        EnrichmentView enrichmentView = enrichmentByIdBO.execute();
+        EnrichmentContentView enrichmentContentView = enrichmentByIdBO.execute();
 
-        if(Objects.nonNull(enrichmentView)){
-            EndPointByIdBO bo = new EndPointByIdBO(enrichmentView.getEndPointId(), endPointRepository);
+        if(Objects.nonNull(enrichmentContentView)){
+            EndPointByIdBO bo = new EndPointByIdBO(enrichmentContentView.getEndPointId(), endPointRepository);
             EndPointView result = bo.execute();
             if(Objects.nonNull(result)){
                 switch(result.getEndPointTypeCode()){
                     case "KAFKA":
-                        this.createKafkaConsumerContainer(enrichmentView.getEnrichmentRules());
+                        this.createKafkaConsumerContainer(enrichmentContentView.getEnrichmentRules());
                         break;
                 }
             }

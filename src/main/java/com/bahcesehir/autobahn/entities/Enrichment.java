@@ -12,6 +12,7 @@ import javax.persistence.OneToOne;
 @Entity
 public class Enrichment extends BaseEntity {
 
+    private String name;
     @OneToOne
     private Project project;
     @OneToOne
@@ -24,6 +25,14 @@ public class Enrichment extends BaseEntity {
 //    private EnrichmentRules enrichmentRules;
 
     private String enrichmentRules;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public Project getProject() {
         return project;

@@ -6,19 +6,10 @@ import com.bahcesehir.autobahn.entities.Enrichment;
 public class EnrichmentView extends BaseView<Enrichment> {
 
     private Long projectId;
-    private Long endPointId;
-    private Long enrichmentSourceId;
-    private Long finalStorageId;
-    private String enrichmentRules;
-
-
-    public String getEnrichmentRules() {
-        return enrichmentRules;
-    }
-
-    public void setEnrichmentRules(String enrichmentRules) {
-        this.enrichmentRules = enrichmentRules;
-    }
+    private String name;
+    private String endPointTypeCode;
+    private String enrichmentSourceTypeCode;
+    private String finalStorageTypeCode;
 
     public EnrichmentView(Enrichment enrichment) {
         this.map(enrichment);
@@ -32,27 +23,35 @@ public class EnrichmentView extends BaseView<Enrichment> {
         this.projectId = projectId;
     }
 
-    public Long getEndPointId() {
-        return endPointId;
+    public String getName() {
+        return name;
     }
 
-    public void setEndPointId(Long endPointId) {
-        this.endPointId = endPointId;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Long getEnrichmentSourceId() {
-        return enrichmentSourceId;
+    public String getEndPointTypeCode() {
+        return endPointTypeCode;
     }
 
-    public void setEnrichmentSourceId(Long enrichmentSourceId) {
-        this.enrichmentSourceId = enrichmentSourceId;
+    public void setEndPointTypeCode(String endPointTypeCode) {
+        this.endPointTypeCode = endPointTypeCode;
     }
 
-    public Long getFinalStorageId() {
-        return finalStorageId;
+    public String getEnrichmentSourceTypeCode() {
+        return enrichmentSourceTypeCode;
     }
 
-    public void setFinalStorageId(Long finalStorageId) {
-        this.finalStorageId = finalStorageId;
+    public void setEnrichmentSourceTypeCode(String enrichmentSourceTypeCode) {
+        this.enrichmentSourceTypeCode = enrichmentSourceTypeCode;
+    }
+
+    public String getFinalStorageTypeCode() {
+        return finalStorageTypeCode;
+    }
+
+    public void setFinalStorageTypeCode(String finalStorageTypeCode) {
+        this.finalStorageTypeCode = finalStorageTypeCode;
     }
 }

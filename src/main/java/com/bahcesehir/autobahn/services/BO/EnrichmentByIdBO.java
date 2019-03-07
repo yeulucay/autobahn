@@ -1,10 +1,10 @@
 package com.bahcesehir.autobahn.services.BO;
 
-import com.bahcesehir.autobahn.controllers.views.EnrichmentView;
+import com.bahcesehir.autobahn.controllers.views.EnrichmentContentView;
 import com.bahcesehir.autobahn.entities.Enrichment;
 import com.bahcesehir.autobahn.repositories.EnrichmentRepository;
 
-public class EnrichmentByIdBO implements BaseBO<EnrichmentView> {
+public class EnrichmentByIdBO implements BaseBO<EnrichmentContentView> {
 
     private EnrichmentRepository enrichmentRepository;
     private Long enrichmentId;
@@ -15,9 +15,9 @@ public class EnrichmentByIdBO implements BaseBO<EnrichmentView> {
     }
 
     @Override
-    public EnrichmentView execute() {
+    public EnrichmentContentView execute() {
         Enrichment enrichment = enrichmentRepository.findById(enrichmentId).orElse(null);
-        return new EnrichmentView(enrichment);
+        return new EnrichmentContentView(enrichment);
     }
 
     @Override
