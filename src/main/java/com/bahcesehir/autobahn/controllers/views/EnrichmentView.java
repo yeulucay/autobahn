@@ -10,6 +10,7 @@ public class EnrichmentView extends BaseView<Enrichment> {
     private String endPointTypeCode;
     private String enrichmentSourceTypeCode;
     private String finalStorageTypeCode;
+    private String dataTypeCode;
 
     public EnrichmentView(Enrichment enrichment) {
         this.map(enrichment);
@@ -53,5 +54,13 @@ public class EnrichmentView extends BaseView<Enrichment> {
 
     public void setFinalStorageTypeCode(String finalStorageTypeCode) {
         this.finalStorageTypeCode = finalStorageTypeCode;
+    }
+
+    public String getDataTypeCode() {
+        return dataTypeCode;
+    }
+
+    public void setDataTypeCode(String dataTypeCode) {
+        this.dataTypeCode = dataTypeCode;
     }
 }

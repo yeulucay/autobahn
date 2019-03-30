@@ -4,6 +4,7 @@ import com.bahcesehir.autobahn.controllers.dto.EndPointCreateDto;
 import com.bahcesehir.autobahn.controllers.dto.EndPointTypeCreateDto;
 import com.bahcesehir.autobahn.controllers.views.EndPointTypeView;
 import com.bahcesehir.autobahn.controllers.views.EndPointView;
+import com.bahcesehir.autobahn.controllers.views.EndpointNameView;
 
 
 public interface EndPointService {

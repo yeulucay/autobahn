@@ -17,8 +17,9 @@ INSERT INTO final_storage_type (id,created_at,deleted,deleted_at,last_updated_at
 
 INSERT INTO final_storage (id,created_at,deleted,deleted_at,last_updated_at,address,description,name,password,port,schema_name,username,final_storage_type_id,project_id) VALUES (1,'2018-12-16 12:00:00',0,NULL,NULL,'127.0.0.1','Test Desc','Test','123456','1234','test','user1',1,1);
 
-INSERT INTO enrichment_source (id,created_at,deleted,deleted_at,last_updated_at,address,database_name,description,name,password,port,username,project_id,type_id, schema_name) VALUES (1,'2018-12-16 12:00:00',0,null,null,'localhost','autobahn','description 1','name 1','Admin12345!','3306','root',1,1, 'public');
-INSERT INTO enrichment_source (id,created_at,deleted,deleted_at,last_updated_at,address,database_name,description,name,password,port,username,project_id,type_id, schema_name) VALUES (2,'2018-12-16 12:00:00',0,null,null,'localhost','deneme','description 1','name 1','','5432','postgres',1,2, 'public');
+INSERT INTO enrichment_source (id,created_at,deleted,deleted_at,last_updated_at,address,database_name,description,name,password,port,username,project_id,type_id, schema_name) VALUES (1,'2018-12-16 12:00:00',0,null,null,'localhost','autobahn','description 1','Enrichment Source 1','Admin12345!','3306','root',1,1, 'public');
+INSERT INTO enrichment_source (id,created_at,deleted,deleted_at,last_updated_at,address,database_name,description,name,password,port,username,project_id,type_id, schema_name) VALUES (2,'2018-12-16 12:00:00',0,null,null,'localhost','testdb','','local testdb','Admin12345!','3306','root',1,1, 'public');
+INSERT INTO enrichment_source (id,created_at,deleted,deleted_at,last_updated_at,address,database_name,description,name,password,port,username,project_id,type_id, schema_name) VALUES (3,'2018-12-16 12:00:00',0,null,null,'localhost','deneme','description 2','Enrichment Source 2','','5432','postgres',1,2, 'public');
 
-INSERT INTO enrichment (id,name,created_at,deleted,deleted_at,last_updated_at,enrichment_rules,end_point_id,enrichment_source_id,final_storage_id,project_id) VALUES (1,'Enrichment 1','2018-12-16 12:00:00',0,NULL,NULL,'{"id":1}',1,1,1,1);
+INSERT INTO enrichment (id,name,data_type_id, created_at,deleted,deleted_at,last_updated_at,enrichment_rules,end_point_id,enrichment_source_id,final_storage_id,project_id) VALUES (1,'Enrichment 1',1,'2018-12-16 12:00:00',0,NULL,NULL,'{"id":1}',1,1,1,1);
 

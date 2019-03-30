@@ -10,6 +10,7 @@ public class EnrichmentContentView extends BaseView<Enrichment> {
     private Long enrichmentSourceId;
     private Long finalStorageId;
     private String enrichmentRules;
+    private Long dataTypeId;
 
 
     public String getEnrichmentRules() {
@@ -54,5 +55,13 @@ public class EnrichmentContentView extends BaseView<Enrichment> {
 
     public void setFinalStorageId(Long finalStorageId) {
         this.finalStorageId = finalStorageId;
+    }
+
+    public Long getDataTypeId() {
+        return dataTypeId;
+    }
+
+    public void setDataTypeId(Long dataTypeId) {
+        this.dataTypeId = dataTypeId;
     }
 }

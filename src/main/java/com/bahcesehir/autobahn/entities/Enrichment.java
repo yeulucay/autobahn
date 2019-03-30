@@ -23,6 +23,8 @@ public class Enrichment extends BaseEntity {
     private FinalStorage finalStorage;
 //    @Convert(converter = DataJsonConverter.class)
 //    private EnrichmentRules enrichmentRules;
+    @OneToOne
+    private DataType dataType;
 
     private String enrichmentRules;
 
@@ -64,6 +66,14 @@ public class Enrichment extends BaseEntity {
 
     public void setFinalStorage(FinalStorage finalStorage) {
         this.finalStorage = finalStorage;
+    }
+
+    public DataType getDataType() {
+        return dataType;
+    }
+
+    public void setDataType(DataType dataType) {
+        this.dataType = dataType;
     }
 
     public String getEnrichmentRules() {
