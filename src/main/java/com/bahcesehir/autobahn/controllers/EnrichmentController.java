@@ -1,5 +1,6 @@
 package com.bahcesehir.autobahn.controllers;
 
+import com.bahcesehir.autobahn.controllers.dto.EnrichmentCreateDto;
 import com.bahcesehir.autobahn.controllers.views.EnrichmentContentView;
 import com.bahcesehir.autobahn.controllers.views.EnrichmentView;
 import com.bahcesehir.autobahn.services.EnrichmentService;
@@ -7,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,6 +24,17 @@ public class EnrichmentController {
         this.enrichmentService = enrichmentService;
     }
 
+
+    /**
+     * Create enrichment source
+     * @param dto
+     * @return
+     */
+    @PostMapping("/create")
+    public ResponseEntity<EnrichmentContentView> createEnrichment(@RequestBody EnrichmentCreateDto dto){
+        EnrichmentContentView result = enrichmentService.createEnrichment(dto);
+        return new ResponseEntity<>(result, HttpStatus.CREATED);
+    }
     /**
      * Get enrichment by Id
      * @param enrichmentId
