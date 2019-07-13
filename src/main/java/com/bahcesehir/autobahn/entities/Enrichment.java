@@ -4,6 +4,7 @@ import com.bahcesehir.autobahn.commons.BaseEntity;
 import com.bahcesehir.autobahn.entities.converters.DataJsonConverter;
 import com.bahcesehir.autobahn.entities.customs.EnrichmentRules;
 
+import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
@@ -26,6 +27,7 @@ public class Enrichment extends BaseEntity {
     @OneToOne
     private DataType dataType;
 
+    @Column(columnDefinition = "LONGTEXT")
     private String enrichmentRules;
 
     public String getName() {

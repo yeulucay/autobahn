@@ -1,6 +1,6 @@
 package com.bahcesehir.autobahn.services.BO;
 
-import com.bahcesehir.autobahn.controllers.dto.EnrichmentCreateDto;
+import com.bahcesehir.autobahn.controllers.dto.EnrichmentSyncDto;
 import com.bahcesehir.autobahn.controllers.views.EnrichmentContentView;
 import com.bahcesehir.autobahn.entities.*;
 import com.bahcesehir.autobahn.repositories.*;
@@ -17,7 +17,7 @@ public class EnrichmentCreateBO implements BaseBO<EnrichmentContentView> {
     private FinalStorageRepository finalStorageRepository;
     private EndPointRepository endPointRepository;
     private DataTypeRepository dataTypeRepository;
-    private EnrichmentCreateDto dto;
+    private EnrichmentSyncDto dto;
 
     private Project project;
     private EndPoint endPoint;
@@ -40,14 +40,20 @@ public class EnrichmentCreateBO implements BaseBO<EnrichmentContentView> {
         this.projectRepository = projectRepository;
     }
 
-    public void setDto(EnrichmentCreateDto dto){
+    public void setDto(EnrichmentSyncDto dto){
         this.dto = dto;
     }
 
     @Override
     public EnrichmentContentView execute() {
         this.validate();
-        Enrichment enrichment = new Enrichment();
+        Enrichment enrichment = enrichmentRepository.findById(dto.getId()).orElse(new Enrichment());
+//        if(dto.getId() == null){
+//            enrichment = new Enrichment();
+//        } else {
+//            enrichment =
+//        }
+
         enrichment.setProject(project);
         enrichment.setDataType(dataType);
         enrichment.setEndPoint(endPoint);
@@ -61,6 +67,7 @@ public class EnrichmentCreateBO implements BaseBO<EnrichmentContentView> {
         if(result != null){
             return new EnrichmentContentView(result);
         }
+
         return null;
     }
 

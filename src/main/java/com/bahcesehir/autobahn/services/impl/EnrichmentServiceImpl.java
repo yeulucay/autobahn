@@ -1,6 +1,6 @@
 package com.bahcesehir.autobahn.services.impl;
 
-import com.bahcesehir.autobahn.controllers.dto.EnrichmentCreateDto;
+import com.bahcesehir.autobahn.controllers.dto.EnrichmentSyncDto;
 import com.bahcesehir.autobahn.controllers.views.EnrichmentContentView;
 import com.bahcesehir.autobahn.controllers.views.EnrichmentView;
 import com.bahcesehir.autobahn.repositories.EnrichmentRepository;
@@ -40,8 +40,9 @@ public class EnrichmentServiceImpl implements EnrichmentService {
     }
 
     @Override
-    public EnrichmentContentView createEnrichment(EnrichmentCreateDto dto) {
+    public EnrichmentContentView syncEnrichment(EnrichmentSyncDto dto) {
         enrichmentCreateBO.setDto(dto);
         return enrichmentCreateBO.execute();
     }
+
 }

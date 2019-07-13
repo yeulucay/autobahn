@@ -5,6 +5,7 @@ import com.bahcesehir.autobahn.entities.Enrichment;
 
 public class EnrichmentContentView extends BaseView<Enrichment> {
 
+    private String name;
     private Long projectId;
     private Long endPointId;
     private Long enrichmentSourceId;
@@ -12,6 +13,14 @@ public class EnrichmentContentView extends BaseView<Enrichment> {
     private String enrichmentRules;
     private Long dataTypeId;
 
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getEnrichmentRules() {
         return enrichmentRules;

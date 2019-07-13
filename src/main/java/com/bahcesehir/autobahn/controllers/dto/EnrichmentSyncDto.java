@@ -1,8 +1,9 @@
 package com.bahcesehir.autobahn.controllers.dto;
 
 
-public class EnrichmentCreateDto {
+public class EnrichmentSyncDto {
 
+    private Long id;
     private Long projectId;
     private Long endPointId;
     private Long enrichmentSourceId;
@@ -10,6 +11,14 @@ public class EnrichmentCreateDto {
     private String enrichmentRules;
     private Long dataTypeId;
     private String name;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Long getProjectId() {
         return projectId;

@@ -1,6 +1,6 @@
 package com.bahcesehir.autobahn.controllers;
 
-import com.bahcesehir.autobahn.controllers.dto.EnrichmentCreateDto;
+import com.bahcesehir.autobahn.controllers.dto.EnrichmentSyncDto;
 import com.bahcesehir.autobahn.controllers.views.EnrichmentContentView;
 import com.bahcesehir.autobahn.controllers.views.EnrichmentView;
 import com.bahcesehir.autobahn.services.EnrichmentService;
@@ -26,13 +26,14 @@ public class EnrichmentController {
 
 
     /**
-     * Create enrichment source
+     * Create|Update enrichment source
+     * If id is sent within the model, it is updated. Otherwise new model is created.
      * @param dto
      * @return
      */
-    @PostMapping("/create")
-    public ResponseEntity<EnrichmentContentView> createEnrichment(@RequestBody EnrichmentCreateDto dto){
-        EnrichmentContentView result = enrichmentService.createEnrichment(dto);
+    @PostMapping("/sync")
+    public ResponseEntity<EnrichmentContentView> createEnrichment(@RequestBody EnrichmentSyncDto dto){
+        EnrichmentContentView result = enrichmentService.syncEnrichment(dto);
         return new ResponseEntity<>(result, HttpStatus.CREATED);
     }
     /**

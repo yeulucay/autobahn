@@ -1,6 +1,6 @@
 package com.bahcesehir.autobahn.services;
 
-import com.bahcesehir.autobahn.controllers.dto.EnrichmentCreateDto;
+import com.bahcesehir.autobahn.controllers.dto.EnrichmentSyncDto;
 import com.bahcesehir.autobahn.controllers.views.EnrichmentContentView;
 import com.bahcesehir.autobahn.controllers.views.EnrichmentView;
 
@@ -12,7 +12,7 @@ public interface EnrichmentService {
 
     List<EnrichmentView> getEnrichmentByProjectId(Long projectId);
 
-    EnrichmentContentView createEnrichment(EnrichmentCreateDto dto);
+    EnrichmentContentView syncEnrichment(EnrichmentSyncDto dto);
 
 
 }
